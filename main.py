@@ -5,7 +5,7 @@ pygame.init()
 pygame.mixer.init()
 
 SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 800
+SCREEN_HEIGHT = 600
 TITLE = 'Snake Game'
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -80,7 +80,7 @@ while running:
             head_x -= CELL_SIZE
 
         snake_pos.insert(0, [head_x,head_y])
-        snake_pos.pop
+        snake_pos.pop()
 
         if snake_pos[0] == apple_pos:
             apple_pos = [random.randint(0,SCREEN_WIDTH // CELL_SIZE - 1) * CELL_SIZE, random.randint(0, SCREEN_HEIGHT // CELL_SIZE - 1) * CELL_SIZE]
