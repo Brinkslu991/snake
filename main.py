@@ -97,32 +97,32 @@ def run_snake_game():
                     new_direction = 4
                 direction = new_direction
 
-            head_x, head_y = snake_pos[0]
+        head_x, head_y = snake_pos[0]
 
-            if direction == 1:
-                head_y -= CELL_SIZE
-            elif direction == 2:
-                head_x += CELL_SIZE
-            elif direction == 3:
-                head_y += CELL_SIZE
-            elif direction == 4:
-                head_x -= CELL_SIZE
+        if direction == 1:
+            head_y -= CELL_SIZE
+        elif direction == 2:
+            head_x += CELL_SIZE
+        elif direction == 3:
+            head_y += CELL_SIZE
+        elif direction == 4:
+            head_x -= CELL_SIZE
 
-            snake_pos.insert(0, [head_x,head_y])
+        snake_pos.insert(0, [head_x,head_y])
 
-            if snake_pos[0] == apple_pos:
-                while apple_pos in snake_pos:
-                    apple_pos = [random.randint(0,SCREEN_WIDTH // CELL_SIZE - 1) * CELL_SIZE, random.randint(0, SCREEN_HEIGHT // CELL_SIZE - 1) * CELL_SIZE]
-                    score += 1
-            else:
-                snake_pos.pop()
-            if head_x < 0 or head_x >= SCREEN_WIDTH or head_y < 0 or head_y >= SCREEN_HEIGHT or snake_pos[0] in snake_pos[1]:
-                running_game = False
+        if snake_pos[0] == apple_pos:
+            while apple_pos in snake_pos:
+                apple_pos = [random.randint(0,SCREEN_WIDTH // CELL_SIZE - 1) * CELL_SIZE, random.randint(0, SCREEN_HEIGHT // CELL_SIZE - 1) * CELL_SIZE]
+                score += 1
+        else:
+            snake_pos.pop()
+        if head_x < 0 or head_x >= SCREEN_WIDTH or head_y < 0 or head_y >= SCREEN_HEIGHT or snake_pos[0] in snake_pos[1]:
+            running_game = False
 
-            pygame.display.flip()
-            clock.tick(FPS)
+        pygame.display.flip()
+        clock.tick(FPS)
         
-        pygame.mixer.music.stop()
+
 
 def main_menu():
     screen_width = 800
